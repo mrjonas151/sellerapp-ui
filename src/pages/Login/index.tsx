@@ -11,7 +11,7 @@ export default function Login(){
             />
             <View style = {styles.inputContainer}>
                 <TextInput placeholder="Usuario" placeholderTextColor={'white'} style = {styles.input}/>
-                <TextInput placeholder="Senha" placeholderTextColor={'white'} style = {styles.input} />
+                <TextInput placeholder="Senha" placeholderTextColor={'white'} style = {styles.input} secureTextEntry/>
                 <TouchableOpacity>
                     <Text style = {styles.textoLogin}>Login</Text>
                 </TouchableOpacity>
