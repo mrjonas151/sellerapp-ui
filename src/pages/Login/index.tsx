@@ -1,7 +1,26 @@
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import React from "react";
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
+import Cadastro from "../Cadastro/index";
 
 export default function Login(){
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigation = useNavigation();
+
+    function handleLogin(){
+        if(email === '' || password === ''){
+            return;
+        }
+
+        alert(password)
+    }
+
+    function goToCadastro(){
+        navigation.navigate("Cadastro" as never);
+    }
+
     return(
         <View style = {styles.container}>
             <Image
@@ -10,15 +29,29 @@ export default function Login(){
                 resizeMode="contain"
             />
             <View style = {styles.inputContainer}>
-                <TextInput placeholder="Usuario" placeholderTextColor={'white'} style = {styles.input}/>
-                <TextInput placeholder="Senha" placeholderTextColor={'white'} style = {styles.input} secureTextEntry/>
-                <TouchableOpacity>
+                <TextInput 
+                    placeholder="Usuario" 
+                    placeholderTextColor={'darkgray'} 
+                    style = {styles.input}
+                    value={email}
+                    onChangeText={setEmail}
+                />
+
+                <TextInput 
+                    placeholder="Senha" 
+                    placeholderTextColor={'darkgray'} 
+                    style = {styles.input} 
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
+                />
+                <TouchableOpacity onPress={handleLogin}>
                     <Text style = {styles.textoLogin}>Login</Text>
                 </TouchableOpacity>
 
                 <Text style = {styles.texto}>Ainda não tem conta?</Text>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={goToCadastro}>
                     <Text style = {styles.textoCadastro}>Cadastrar</Text>
                 </TouchableOpacity>
                 
