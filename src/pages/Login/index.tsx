@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
         color:'#FFD700',
         fontSize: 14,
         fontWeight: 'bold',
+        marginTop: 8,
     },
     textoLogin:{
         color: '#FFF',
