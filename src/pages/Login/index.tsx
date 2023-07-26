@@ -49,7 +49,7 @@ export default function Login(){
                     <Text style = {styles.textoLogin}>Login</Text>
                 </TouchableOpacity>
 
-                <Text style = {styles.texto}>Ainda não tem conta?</Text>
+                <Text style = {styles.texto}>Ainda não possui uma conta?</Text>
 
                 <TouchableOpacity onPress={goToCadastro}>
                     <Text style = {styles.textoCadastro}>Cadastrar</Text>
