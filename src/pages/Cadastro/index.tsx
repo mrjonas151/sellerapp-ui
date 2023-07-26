@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
-
+import { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Cadastro(){
     const [email, setEmail] = useState('');
@@ -34,17 +34,16 @@ export default function Cadastro(){
                     placeholder="Usuario" 
                     placeholderTextColor={'darkgray'} 
                     style = {styles.input}
-                    value={email}
-                    onChangeText={setEmail}
+                    value={username}
+                    onChangeText={setUsername}
                 />
 
                 <TextInput 
                     placeholder="E-mail" 
                     placeholderTextColor={'darkgray'} 
                     style = {styles.input} 
-                    secureTextEntry
-                    value={password}
-                    onChangeText={setPassword}
+                    value={email}
+                    onChangeText={setEmail}
                 />
 
                 <TextInput 

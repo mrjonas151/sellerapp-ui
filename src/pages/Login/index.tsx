@@ -1,8 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import React from "react";
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
 import Cadastro from "../Cadastro/index";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function Login(){
     const [email, setEmail] = useState('');
