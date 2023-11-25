@@ -2,31 +2,15 @@ import { useNavigation } from "@react-navigation/native";
 import { useState, useContext } from "react";
 import React from "react";
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
+import Cadastro from "../Cadastro/index";
 import { AuthContext } from "../../contexts/AuthContext";
 
-export default function Login(){
+export default function Recover(){
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const navigation = useNavigation();
 
-    function handleLogin(){
-        if(email === '' || password === ''){
-            return;
-        }
-
-        alert(password)
-    }
-
-    function goToHome(){
-        navigation.navigate("Dashboard" as never);
-    }
-
-    function goToCadastro(){
-        navigation.navigate("Cadastro" as never);
-    }
-
-    function goToRecover(){
-        navigation.navigate("Recover" as never);
+    function goToLogin(){
+        navigation.navigate("Login")
     }
 
     return(
@@ -38,38 +22,23 @@ export default function Login(){
             />
             <View style = {styles.inputContainer}>
                 <TextInput 
-                    placeholder="E-mail" 
+                    placeholder="Usuario" 
                     placeholderTextColor={'darkgray'} 
                     style = {styles.input}
                     value={email}
                     onChangeText={setEmail}
                 />
 
-                <TextInput 
-                    placeholder="Senha" 
-                    placeholderTextColor={'darkgray'} 
-                    style = {styles.input} 
-                    secureTextEntry
-                    value={password}
-                    onChangeText={setPassword}
-                />
-
                 <View style = {styles.recoverContainer}>
-                    <TouchableOpacity onPress={goToRecover}>
-                        <Text style = {styles.textoRecover}>Esqueceu sua senha?</Text>
+                    <TouchableOpacity>
+                        <Text style = {styles.textoRecover}>Recuperar conta</Text>
                     </TouchableOpacity>   
                 </View>
-                
 
+                <Text style = {styles.texto}>Lembrou magicamente da sua senha?</Text>
 
-                <TouchableOpacity onPress={goToHome}>
-                    <Text style = {styles.textoLogin}>Login</Text>
-                </TouchableOpacity>
-
-                <Text style = {styles.texto}>Ainda não possui uma conta?</Text>
-
-                <TouchableOpacity onPress={goToCadastro}>
-                    <Text style = {styles.textoCadastro}>Cadastrar</Text>
+                <TouchableOpacity onPress={goToLogin}>
+                    <Text style = {styles.textoRecuperar}>Fazer Login</Text>
                 </TouchableOpacity>
                 
                 
@@ -86,12 +55,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingBottom: 50,
     },
 
     logo:{
         width: '85%',
-        marginBottom: 25,
+        marginBottom: 5,
         alignItems: 'center',
     },
 
@@ -116,9 +84,9 @@ const styles = StyleSheet.create({
         color: '#FFF',
         marginTop: 21,
     },
-    textoCadastro:{
+    textoRecuperar:{
         color:'#FFD700',
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 'bold',
         marginTop: 8,
     },
@@ -130,14 +98,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     recoverContainer: {
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: '90%',
         
     },
     textoRecover:{
         color:'#FFD700',
-        fontSize: 14,
+        fontSize: 19,
         fontWeight: 'bold',
         marginBottom: 10
     }

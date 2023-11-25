@@ -7,7 +7,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 export default function Cadastro(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
+    const [repeatPass, setRepeatPass] = useState('');
 
     const navigation = useNavigation();
 
@@ -31,17 +31,9 @@ export default function Cadastro(){
 
             <View style = {styles.inputContainer}>
                 <TextInput 
-                    placeholder="Usuario" 
-                    placeholderTextColor={'darkgray'} 
-                    style = {styles.input}
-                    value={username}
-                    onChangeText={setUsername}
-                />
-
-                <TextInput 
                     placeholder="E-mail" 
                     placeholderTextColor={'darkgray'} 
-                    style = {styles.input} 
+                    style = {styles.input}
                     value={email}
                     onChangeText={setEmail}
                 />
@@ -53,6 +45,15 @@ export default function Cadastro(){
                     secureTextEntry
                     value={password}
                     onChangeText={setPassword}
+                />
+
+                <TextInput 
+                    placeholder="Repetir senha" 
+                    placeholderTextColor={'darkgray'} 
+                    style = {styles.input} 
+                    secureTextEntry
+                    value={repeatPass}
+                    onChangeText={setRepeatPass}
                 />
                 
                 <TouchableOpacity onPress={handleCadastro}>
